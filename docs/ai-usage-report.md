@@ -1,7 +1,7 @@
 # AI Usage Report — Assignment 2
 
 **Name:** Ibrahim Alrashaid  
-**Student ID:** [ENTER STUDENT ID]  
+**Student ID:** 202357190
 **Report updated:** 25 October 2026
 
 ## 1. Tools Used and Use Cases
@@ -79,5 +79,5 @@ The separate AI evidence ZIP must contain the complete, unedited conversation ex
 > I declare that this report and the attached evidence document all of my AI use in this assignment, with complete and unedited conversations, and that I understand and can explain all the code I submitted. I understand that undeclared AI use or a false declaration will be treated as plagiarism according to KFUPM regulations.
 
 **Name:** Ibrahim Alrashaid  
-**Student ID:** [ENTER STUDENT ID]  
-**Declaration date:** [COMPLETE AFTER REVIEWING THE REPORT AND EVIDENCE]
+**Student ID:** 202357190
+**Declaration date:** 10/25/2026

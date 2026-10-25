@@ -1,8 +1,34 @@
 # Technical Documentation — Assignment 2
 
+**Author:** Ibrahim Alrashaid  
+**Updated:** 25 October 2026
+
 ## Overview and baseline
 
 The project extends the provided Assignment 1 HTML, stylesheet, JavaScript, and screenshots. The original sections and project descriptions remain. Assignment 2 adds filtering/search, contact-form validation, empty states, storage feedback, transitions, and a consistent responsive layout. It remains a static site with no runtime dependencies or backend.
+
+## Setup and project structure
+
+```text
+assignment-2/
+├── index.html
+├── README.md
+├── .gitignore
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+│       ├── cpu.png
+│       └── track.jpeg
+└── docs/
+    ├── ai-usage-report.md
+    ├── assignment1-ai-usage-report.md
+    └── technical-documentation.md
+```
+
+Keep this folder structure intact and open `index.html`. No package installation, API key, build process, or database is required. For consistent browser storage behavior, use VS Code Live Server, or run `python -m http.server 8000` from the project root if Python is installed and visit `http://localhost:8000`. Use the same host and port when testing persistence.
 
 ## Responsibilities
 
@@ -30,6 +56,8 @@ The existing `theme` localStorage key is reused. Only `dark` and `light` are acc
 `applyTheme()` changes the root `data-theme` attribute and the button label/state. CSS custom properties supply the colors. Storage reads/writes are protected with try/catch. If storage fails, the theme still changes for the current visit and a live message explains that saving is unavailable.
 
 Only the theme is stored. Searches, names, email addresses, and message text are not saved by application code. Browser autofill is separate from application storage.
+
+During follow-up troubleshooting, an explicit `:root[data-theme="light"]` color-variable rule was suggested to address a possible light-theme styling override. The student subsequently confirmed that both selected themes survived refreshing. The final edited stylesheet was not supplied for inspection, so the exact initial cause is not established. Theme appearance and the saved value should be checked separately when debugging.
 
 ## Form validation and feedback
 
@@ -59,15 +87,27 @@ Browser checks in the available Chrome preview confirmed:
 - Invalid email and a short message produce appropriate errors.
 - Valid test input produces the honest demo confirmation without navigation.
 - A selected dark theme persists after reloading.
+- Combined UI Design filtering and an uppercase `FIGMA` query show the tracker project.
 - Both screenshot frames measure 280px high at a viewport width of 1363px, without horizontal page overflow.
 
 These are assistant checks, not a claim of student testing or complete browser certification. Browser-extension warnings were observed; these are separate from application behavior.
 
+The later uploaded JavaScript was also tested in a simulated browser environment: choosing dark or light saved the corresponding value, and reinitializing the script restored it. A simulation is not a substitute for testing the actual browser and stylesheet.
+
+## Student-confirmed tests — 25 October 2026
+
+During follow-up testing, the student confirmed that:
+
+- Selecting light mode and refreshing kept the page light.
+- Selecting dark mode and refreshing kept the page dark.
+
+These results verify theme persistence in the student's tested environment, not every feature or browser. They do not certify that all remaining checks below have been completed.
+
 ## Student checks still required
 
 1. Test at approximately 375px, 768px, and desktop widths: no overflow, usable navigation, equal image frames, and stacked mobile cards.
-2. Test UI Design, All, case-insensitive search, positive search matches, and combined category/search behavior.
-3. Check both themes, keyboard-only navigation, visible focus, and reduced-motion settings.
+2. Personally verify All, Hardware, UI Design, case-insensitive search, positive search matches, reset, and combined category/search behavior on the final working copy.
+3. Check color contrast in both themes, keyboard-only navigation, visible focus, and reduced-motion settings.
 4. Try whitespace-only input, correcting errors, and text containing HTML characters.
 5. Test unavailable localStorage: switching should still work and explain saving failure.
 6. Repeat core checks in a second browser and inspect for application errors or missing assets.
