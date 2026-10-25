@@ -1,52 +1,83 @@
 # AI Usage Report — Assignment 2
 
-**Student:** Ibrahim Alrashaid  
-**Student ID:** [ENTER YOUR STUDENT ID]  
-**Report status:** AI-assisted draft; student review, modifications, evidence export, and declaration completion are still required.
+**Name:** Ibrahim Alrashaid  
+**Student ID:** [ENTER STUDENT ID]  
+**Report updated:** 25 October 2026
 
-## Tools and scope
+## 1. Tools Used and Use Cases
 
-ChatGPT (Codex assistant; exact model version not recorded here) assisted with interpreting Assignment 2, reviewing the uploaded Assignment 1 files, implementing project filtering and live search, adding custom form feedback, improving theme-storage behavior, consolidating image styles, and writing documentation. The assistant also performed browser checks in Chrome.
+I used ChatGPT, including the Codex assistant, to support the development of my portfolio. The exact model version was not independently recorded. AI assistance included substantial code generation, explanations, debugging, code review, and documentation drafting; it was not limited to proofreading or minor suggestions.
 
-Assignment 1 already used ChatGPT for its HTML template, dark-mode troubleshooting, image sizing, project markup, and documentation. Its original report is retained as `docs/assignment1-ai-usage-report.md`. That report is historical and does not certify completion of Assignment 2 evidence.
+### Assignment 1 baseline
 
-## Usage log
+My Assignment 2 website builds on an AI-assisted Assignment 1 portfolio. Earlier assistance included creating the initial HTML template, explaining repository requirements, troubleshooting dark mode and file paths, adjusting images, reviewing project markup, and drafting documentation. The two featured projects are my five-stage pipelined CPU and assignment tracker prototype. The original Assignment 1 AI report is retained separately in the project documentation.
 
-Each ID refers to a conversation or original generated artifact. Dates below refer to this Assignment 2 session. Add every other AI conversation/tool used; do not omit follow-up work.
+### Assignment 2 implementation
+
+After I supplied the assignment instructions and my existing files, the assistant generated a separate Assignment 2 starter. It included:
+
+- Project category buttons and live text search, including combined filtering, a result count, an empty state, and a reset button.
+- Contact-form validation with field-specific errors and a confirmation explaining that the form is a demo and does not send or save messages.
+- Theme preference handling through localStorage, including feedback when storage is unavailable.
+- Consolidated screenshot sizing, responsive CSS, hover transitions, form-feedback animation, and reduced-motion support.
+- An updated README, technical documentation, AI-report draft, and a separate evidence starter with original generated artifacts.
+
+The assistant performed browser checks on the generated starter. Those checks are distinguished from my own testing below.
+
+## 2. Usage Log
+
+The Assignment 2 work and subsequent troubleshooting took place in the same conversation thread. C01 therefore covers that complete conversation, including follow-up questions; these were not separate conversations. Any additional AI conversations or tools used outside this thread must be added before submission.
 
 | ID | Tool (model) | Date | Purpose | Files affected | What you changed and how you verified it |
 | --- | --- | --- | --- | --- | --- |
-| C01 | ChatGPT / Codex (exact model version not recorded) | 2026-10-25 | Understand requirements; review Assignment 1; implement and explain Assignment 2 changes; prepare documentation | `index.html`, `css/styles.css`, `js/script.js`, `.gitignore`, `README.md`, `docs/` | Assistant checks are recorded in technical documentation. Student edits/tests: PENDING; replace this with the actual changes and results after review. Export the complete unedited conversation, including earlier context in this thread. |
-| A01 | ChatGPT / Codex (exact model version not recorded) | 2026-10-25 | Original AI-generated Assignment 2 starter and documentation before student edits | Snapshot in the separate evidence folder under `artifacts/A01/` | Preserve unchanged. Make student modifications in the working project, then describe the differences and verification here. |
+| C01 | ChatGPT / Codex; exact model version not independently recorded | 2026-10-25 for Assignment 2 work; earlier Assignment 1 context is in the same thread | Interpret requirements; generate the Assignment 2 starter; review code; explain filtering, storage, errors and animation; troubleshoot theme persistence; prepare documentation | `index.html`, `css/styles.css`, `js/script.js`, `.gitignore`, `README.md`, and documentation under `docs/` | I supplied my existing project and participated in follow-up troubleshooting. After an explicit light-theme CSS rule was suggested, I confirmed that both light and dark modes persisted after refreshing. The assistant's separate checks are listed below. Other student changes and tests should be added only if actually completed. |
+| A01 | ChatGPT / Codex; exact model version not independently recorded | 2026-10-25 | Generate the original Assignment 2 project and documentation before student edits | Original snapshot in the evidence starter at `artifacts/A01/` | Preserve this snapshot unchanged. It records the AI-generated baseline rather than claiming the student authored the entire implementation. |
+| A02 | ChatGPT / Codex; exact model version not independently recorded | 2026-10-25 | Produce this updated AI usage report following theme troubleshooting | `docs/ai-usage-report.md` | This report is also AI-assisted. Preserve its original downloaded version in the evidence folder before making personal corrections. |
 
-## Benefits and challenges
+## 3. Benefits and Challenges
 
-The assistance provided a working example connecting user actions to project visibility, result counts, and validation feedback. It also separated saved theme preference from transient search and form input. During review, conflicting image selectors in Assignment 1 were identified and replaced with a single image rule. Browser checks verified equal desktop image heights.
+AI helped turn the requirements into concrete features and provided explanations of how HTML, CSS, and JavaScript work together. It also helped compare possible ways to meet the data-handling requirement: saving a theme preference, validating a form, or saving a message draft. A saved message draft was discussed as an option, but this report does not claim that it was implemented.
 
-AI output still needs personal review. Earlier image suggestions in this conversation required several revisions; testing was important to distinguish full-width layout behavior from file-format issues. This version has not been certified across all screen sizes or browsers. The assistant cannot certify the student's understanding or produce a genuine conversation export on the student's behalf.
+Some suggestions required further investigation rather than immediate acceptance. Earlier image-sizing changes produced screenshots that were too large or had inconsistent heights. The generated Assignment 2 version used equal-height frames and `object-fit: contain` to preserve complete screenshots.
 
-## Learning reflection — complete in your own words
+During follow-up testing, I reported that light mode did not remain selected while dark mode did. The assistant reviewed my uploaded JavaScript and found that its theme-saving logic worked in a simulated environment. It requested browser storage checks and suggested an explicit CSS rule for the light theme if the saved value and appearance differed. I subsequently confirmed that both themes worked correctly after refreshing. The exact original cause was not conclusively established, and the assistant did not inspect my final edited stylesheet.
 
-- Explain how category and search conditions combine to determine visible cards.
-- Explain why `event.preventDefault()` is essential for this demo form.
-- Explain what localStorage saves, how errors are handled, and why OS preference is not saved automatically.
-- Explain how fixed frame height and `object-fit: contain` unify screenshots.
-- Describe at least one meaningful modification you personally made and how you tested it. Do not invent modifications or tests.
+## 4. Learning Outcomes and Review
 
-## Responsible use and evidence
+The explanations and troubleshooting covered these concepts:
 
-This is AI-generated starter work, not a claim that the student independently wrote or verified every line. Review the code, make and document your own improvements, and only submit code you can explain.
+- localStorage keeps a small preference, such as `theme`, between page loads; it is separate from the currently applied HTML attribute.
+- A stored preference and the visible theme must both be checked when diagnosing persistence problems.
+- CSS custom properties define shared colors, while `data-theme` selects the active theme.
+- Category and search conditions can be combined to show only matching project cards.
+- Clear feedback should explain both the problem and the next action, such as entering a longer message or resetting a search.
+- A CSS transition animates a change between states; reduced-motion support avoids forcing unnecessary motion.
+- Saving a message in localStorage does not deliver it to the website owner.
 
-Keep the complete unedited conversation export in the separate `conversations/` evidence directory. Preserve original generated artifacts under `artifacts/`. Include any other conversations or intermediate outputs from other AI tools. Do not replace full logs with a summary and do not commit logs or the evidence ZIP to the public repository.
+These are the concepts addressed during the review, not a substitute for demonstrating understanding. Before submission, I must be able to explain the code and revise any part of this report that does not accurately reflect my understanding or work.
 
-The assistant supplied an evidence starter, not a complete evidence submission. The student must supply conversation exports. Consult the instructor's separate AI Usage Guidelines; that linked document was not supplied here.
+## 5. Verification and Responsible Use
 
-## Required declaration — review and complete before submission
+### My confirmed testing
 
-The following is the instructor's required declaration text, provided as an unsigned template. Do not treat it as made until all claims are true and the missing details are completed.
+I confirmed in the conversation that selecting light mode and refreshing kept the page light, and selecting dark mode and refreshing kept the page dark. I also supplied my JavaScript and a developer-tools screenshot during troubleshooting.
+
+### Assistant testing
+
+The assistant checked the generated starter's category filtering, unmatched search and empty state, reset control, combined UI Design/case-insensitive search, empty/invalid/valid form feedback, dark-theme persistence, loaded images, and equal desktop image heights. It also checked JavaScript syntax and local resource paths. Later, it tested the uploaded theme script's save/restore behavior using a simulated browser environment. These are assistant checks, not claims that I personally ran them.
+
+Mobile/tablet layouts, a second browser, and the final edited project's remaining features still need student verification unless completed and recorded separately. This report does not certify those tests as passed.
+
+I will keep the AI-generated baseline and distinguish it from my own edits. I must not describe the complete starter as independently written, claim unperformed testing, or submit code that I cannot explain. Further changes and tests must be recorded accurately.
+
+## 6. Evidence and Required Declaration
+
+The separate AI evidence ZIP must contain the complete, unedited conversation export under `conversations/` and original intermediate outputs under `artifacts/`. This report is a summary, not a replacement for those conversations. The evidence starter does not contain an authentic exported conversation until I add it. Any other AI work used must also be included. Logs and the evidence ZIP must not be committed to the public repository.
+
+**Before submitting:** enter the student ID, verify the evidence is complete, review this AI-drafted report, and complete the declaration details only when all its claims are true. The declaration below is provided as the required text, not as an already completed attestation.
 
 > I declare that this report and the attached evidence document all of my AI use in this assignment, with complete and unedited conversations, and that I understand and can explain all the code I submitted. I understand that undeclared AI use or a false declaration will be treated as plagiarism according to KFUPM regulations.
 
 **Name:** Ibrahim Alrashaid  
-**Student ID:** [ENTER YOUR STUDENT ID]  
-**Declaration date:** [ENTER DATE AFTER VERIFYING EVIDENCE AND UNDERSTANDING]
+**Student ID:** [ENTER STUDENT ID]  
+**Declaration date:** [COMPLETE AFTER REVIEWING THE REPORT AND EVIDENCE]
