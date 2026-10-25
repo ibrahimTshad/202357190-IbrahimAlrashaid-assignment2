@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ibrahim Alrashaid's portfolio: computer architecture and interface design projects.">
+    <title>Ibrahim Alrashaid | Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="logo" href="#home">Ibrahim Alrashaid</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+        </nav>
+    </header>
+    <main id="main" class="container">
+        <section id="home" class="hero">
+            <p class="eyebrow">Hello, my name is</p>
+            <h1>Ibrahim Alrashaid</h1>
+            <p class="tagline">Computer Science student and aspiring web developer.</p>
+            <a class="button primary" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+        </section>
+        <section id="about" class="section">
+            <p class="eyebrow">Get to know me</p>
+            <h2>About Me</h2>
+            <p class="about-text">I am a student interested in technology, programming, and web development.
+                I enjoy learning new skills and turning ideas into useful digital projects.
+                My current goal is to improve my HTML, CSS, and JavaScript skills while building a professional portfolio.</p>
+        </section>
+        <section id="projects" class="section">
+            <p class="eyebrow">From circuits to interfaces</p>
+            <h2>Projects</h2>
+            <!-- JavaScript reveals these controls only when filtering is available. -->
+            <div id="project-controls" class="project-controls" hidden>
+                <div class="filters" role="group" aria-label="Filter projects by category">
+                    <button type="button" class="filter-button" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-button" data-filter="hardware" aria-pressed="false">Hardware</button>
+                    <button type="button" class="filter-button" data-filter="design" aria-pressed="false">UI Design</button>
+                </div>
+                <div class="search-field">
+                    <label for="project-search">Search projects</label>
+                    <input id="project-search" type="search" placeholder="Try Verilog or Figma">
+                </div>
+            </div>
+            <p id="project-count" class="muted" role="status" aria-live="polite"></p>
+            <div class="project-grid">
+                <article class="project-card" data-category="hardware">
+                    <img src="assets/images/cpu.png" alt="Logisim circuit for the five-stage pipelined CPU" class="project-image">
+                    <div class="project-card-content">
+                        <p class="eyebrow">Hardware · Verilog / Logisim</p>
+                        <h3>Five-Stage Pipelined CPU</h3>
+                        <p>I designed a simple five-stage pipelined CPU for my Computer Organization course.
+                            It was implemented using Verilog and Logisim and supports a basic instruction set.</p>
+                    </div>
+                </article>
+                <article class="project-card" data-category="design">
+                    <img src="assets/images/track.jpeg" alt="Assignment tracker login interface designed in Figma" class="project-image">
+                    <div class="project-card-content">
+                        <p class="eyebrow">UI Design · Figma</p>
+                        <h3>Assignment Tracker</h3>
+                        <p>I designed an assignment tracker for students and teachers during my Software Engineering course.
+                            The Figma prototype helps students track deadlines while teachers monitor progress.</p>
+                    </div>
+                </article>
+            </div>
+            <div id="empty-state" class="empty-state" hidden>
+                <h3>No projects found</h3>
+                <p>Try a different keyword or reset the filters to see all projects.</p>
+                <button id="reset-filters" type="button">Reset filters</button>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <p class="eyebrow">Let us connect</p>
+            <h2>Contact Me</h2>
+            <p id="contact-note" class="muted">Demo form: your message is checked locally, not sent or saved. To connect, visit my <a href="https://github.com/ibrahimTshad">GitHub profile</a>.</p>
+            <form id="contact-form" class="contact-form" aria-describedby="contact-note">
+                <div class="form-group">
+                    <label for="name">Name (required)</label>
+                    <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="name-error">
+                    <span id="name-error" class="field-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (required)</label>
+                    <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="email-error">
+                    <span id="email-error" class="field-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (required, at least 10 characters)</label>
+                    <textarea id="message" name="message" rows="5" minlength="10" maxlength="2000" required aria-describedby="message-error"></textarea>
+                    <span id="message-error" class="field-error"></span>
+                </div>
+                <button id="contact-submit" class="primary" type="submit" disabled>Check message</button>
+                <noscript><p>This demo needs JavaScript to validate your message. You can still use the GitHub link above.</p></noscript>
+                <p id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; <span id="current-year">2026</span> Ibrahim Alrashaid.</p>
+            <a href="https://github.com/ibrahimTshad">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+    </footer>
+    <p id="storage-status" class="container muted" role="status" aria-live="polite"></p>
+</body>
+</html>

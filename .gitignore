@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+Thumbs.db
+# AI evidence is submitted separately on Blackboard, never in this repository.
+conversations/
+artifacts/
+evidence-to-complete/
+*-ai-evidence.zip
